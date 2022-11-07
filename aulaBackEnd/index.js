@@ -4,14 +4,16 @@ const cors = require("cors");
 const bodyparser = require("body-parser");
 const config = require("./config");
 
-// Middleware
 const app = express();
+
 app.use(express.json());
 app.use(cors());
 app.use(bodyparser.json());
 
 var conString = config.urlConnection;
+
 var client = new Client(conString);
+
 client.connect(function (err) {
   if (err) {
     return console.error("Não foi possível conectar ao banco.", err);
@@ -24,17 +26,16 @@ client.connect(function (err) {
   });
 });
 
-// ROTAS
 app.get("/", (req, res) => {
   console.log("Response ok.");
-  res.send("Ok – Servidor disponível.");
+  res.send("Ok!!!");
 });
 
 app.get("/usuarios", (req, res) => {
   try {
     client.query("SELECT * FROM Usuarios", function (err, result) {
       if (err) {
-        return console.error("Erro ao executar a query do SELECT", err);
+        return console.error("Erro ao executar a qry de SELECT", err);
       }
       res.send(result.rows);
       console.log("Chamou get usuarios");
@@ -44,7 +45,7 @@ app.get("/usuarios", (req, res) => {
   }
 });
 
-app.get("/usuarios/:id/", (req, res) => {
+app.get("/usuarios/:id", (req, res) => {
   try {
     console.log("Chamou /:id " + req.params.id);
     client.query(
@@ -88,6 +89,54 @@ app.delete("/usuarios/:id", (req, res) => {
   }
 });
 
+app.post("/usuarios", (req, res) => {
+  try {
+    console.log("Chamou post", req.body);
+    const { nome, email } = req.body;
+    console.log(nome);
+    client.query(
+      "INSERT INTO Usuarios (nome, email) VALUES ($1, $2) RETURNING * ",
+      [nome, email],
+      function (err, result) {
+        if (err) {
+          return console.error("Erro ao executar a qry de INSERT", err);
+        }
+        const { id } = result.rows[0];
+        res.setHeader("id", `${id}`);
+        res.status(201).json(result.rows[0]);
+        console.log(result);
+      }
+    );
+  } catch (erro) {
+    console.error(erro);
+  }
+});
+
+app.put("/usuarios/:id", (req, res) => {
+  try {
+    console.log("Chamou update", req.body);
+    const id = req.params.id;
+    const { nome, email } = req.body;
+    client.query(
+      "UPDATE Usuarios SET nome=$1, email=$2 WHERE id =$3 ",
+      [nome, email, id],
+      function (err, result) {
+        if (err) {
+          return console.error("Erro ao executar a qry de UPDATE", err);
+        } else {
+          res.setHeader("id", id);
+          res.status(202).json({ id: id });
+          console.log(result);
+        }
+      }
+    );
+  } catch (erro) {
+    console.error(erro);
+  }
+});
+
 app.listen(config.port, () =>
   console.log("Servidor funcionando na porta " + config.port)
 );
+
+module.exports = app;
