@@ -1,0 +1,57 @@
+/* *{
+    margin: 0;
+    padding: 0;
+} */
+
+ul li {
+  list-style-type: circle;
+}
+
+#menu-horizontal {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
+#menu-horizontal ul {
+  padding: 0;
+  background-color: gray;
+  text-align: center; /*alinhar os elementos na direita*/
+}
+
+#menu-horizontal ul li {
+  display: inline-block; /*ficar em uma linha (e nao colunas)*/
+}
+
+#menu-horizontal ul li a {
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  color: antiquewhite;
+  text-decoration: none; /*tira o sublinhado*/
+  padding: 15px;
+  display: inline-block; /*cria um bloco com o padding informado*/
+  transition: background 1s; /*efeito de fade combinado com o hover*/
+}
+
+#menu-horizontal ul li a:hover {
+   color: yellow;
+  }
+
+
+#principal{
+    height: 100vh;
+    display: block;
+    background-color: azure;
+}
+
+#formulario{
+    height: 100vh;display: block;
+    background-image: url("/assets/endless-constellation.svg");
+    
+}
+
+#image-react{
+    width: 40%;
+    height: 40%;
+}
+

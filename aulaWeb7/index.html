@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=h1, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/styles.css" />
+  </head>
+  <body>
+    <nav id="menu-horizontal">
+      <ul>
+        <li><a href="outra.html">Menu1</a></li>
+        <li><a href="#principal">Menu2</a></li>
+        <li><a href="#formulario">Menu3</a></li>
+        <li><a href="https://www.unifei.edu.br" target="_blank">Menu4</a></li>
+      </ul>
+    </nav>
+
+    <section id="principal">
+      <h1>Título principal</h1>
+      <ul>
+        <li>Item 1</li>
+        <li>Item 2</li>
+        <li>Item 3</li>
+      </ul>
+
+      <ol type="I" start="3">
+        <li>Item 3</li>
+        <li>Item 2</li>
+        <li>Item 1</li>
+      </ol>
+
+      <dl>
+        <dt>Item 1</dt>
+        <dd>Item 2</dd>
+        <dd>Item 2</dd>
+      </dl>
+      <img id="image-react" src="assets/undraw_react_re_g3ui.svg" alt="Moça ao lado do logo do React">
+    </section>
+
+    <section id="formulario">
+      <form action="#" method="get" target="_blank" autocomplete="off">
+        <section>
+          <h1>Titulo 1</h1>
+          <p>Texto qualquer</p>
+          <fieldset>
+            <legend>Descrição do grupo</legend>
+            <p>Texto também</p>
+            <label for="nameCli">Nome do cliente: </label>
+            <div>
+              <input
+                type="text"
+                id="nameCli"
+                name="txtNomeCli"
+                placeholder="Nome"
+                required
+              />
+            </div>
+            <div>
+              <label for="mailCli">Email do cliente: </label>
+              <input
+                type="email"
+                id="mailCli"
+                name="txtMailCli"
+                placeholder="E-Mail"
+              />
+            </div>
+            <div>
+              <label for="optCli">Opção do cliente: </label>
+              <input type="checkbox" id="optCli" name="chkOptCli" checked />
+            </div>
+            <p>Sexo:</p>
+            <div style="display: flex">
+              <label for="optSexMas">Masculino: </label>
+              <input type="radio" id="optSexMas" name="sexCli" value="Mas" />
+              <label for="optSexFem">Feminino: </label>
+              <input type="radio" id="optSexFem" name="sexCli" value="Fem" />
+            </div>
+            <div>
+              <label for="optSexFem">Sexo: </label>
+              <select id="cmbSexo" name="optCmbSexo">
+                <option value="M" label="Masculino"></option>
+                <option value="F" label="Feminino"></option>
+              </select>
+            </div>
+            <div style="display: block; padding-top: 10px; padding-right: 10px">
+              <button type="submit">Enviar</button>
+              <button type="reset">Limpar campos</button>
+            </div>
+          </fieldset>
+        </section>
+      </form>
+    </section>
+  </body>
+</html>

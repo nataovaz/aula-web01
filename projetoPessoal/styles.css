@@ -1,12 +1,15 @@
+
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
     position: relative;
-    background-color: rgb(51, 51, 51);
+    
     font-family: 'Ubuntu', sans-serif;
-}
+    
+}   
 
 body {
     display: flex;

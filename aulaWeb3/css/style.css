@@ -1,0 +1,19 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+
+@media (max-width: 768px) {
+  body {
+    background: #9fd3c7;
+    font-size: 1.2rem;
+  }
+}
+
+@media all and (min-width: 769px) and (max-width: 1024px) {
+  body {
+    background: #ffebbb;
+    font-size: 1.6rem;
+  }
+}
