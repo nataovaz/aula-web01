@@ -1,0 +1,31 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+header{
+    background-color: chocolate;
+    height: 40px;
+    
+}
+
+.itemPage{
+    text-decoration: none;
+    color: darkcyan;
+    transition: 1s;
+}
+
+.itemPage:hover{
+    color: aquamarine;
+}
+nav{
+    height: 100%;
+}
+
+ul {
+    display: flex;
+    list-style: none;
+    justify-content: space-around;
+    align-items: center;
+    height: 100%;
+}
